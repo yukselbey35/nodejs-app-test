@@ -3,10 +3,15 @@ pipeline {
    agent any
 
    stages {
+     stage('Update OS') { 
+        steps { 
+           sh 'sudo yum update' 
+        }
+     }  
    
      stage('Install Dependencies') { 
         steps { 
-           sh 'npm install' 
+           sh 'sudo yum install nodejs npm' 
         }
      }
      
